@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('title', 50);
             $table->text('description')->nullable();
             $table->string('image');
-            $table->string('author', 20);
+            $table->string('price');
+            $table->string('type', 50);
             $table->timestamps();
         });
     }
