@@ -13,6 +13,7 @@
                             <p class="card-text">{{$comic->description}}</p>
                             <p class="card-text">{{$comic->type}}</p>
                             <p class="card-text">{{$comic->price}}</p>
+                            <a href="{{ route('comics.show', $comic->id) }}" class="btn btn-primary">Show details</a>
                         </div>
                     </div>
                 </div>
