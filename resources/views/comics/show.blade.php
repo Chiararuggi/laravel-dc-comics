@@ -6,7 +6,7 @@
             <h2>{{ $comic->title}}</h2>
         </div>
         <div class="row">
-            <img src="{{$comic->image}}">
+            <img src="{{$comic->image}}" class="w-50">
         </div>
         <div class="row">
             <p>{{$comic->description}}</p>
