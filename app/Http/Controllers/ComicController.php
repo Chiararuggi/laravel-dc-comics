@@ -67,13 +67,7 @@ class ComicController extends Controller
     public function update(Request $request, Comic $comic)
     {
         $data = $request->all();
-
-        $comic->title = $data["title"];
-        $comic->description = $data["description"];
-        $comic->image = $data["image"];
-        $comic->price = $data["price"];
-        $comic->type = $data["type"];
-        $comic->save();
+        $comic->update($data);
 
         return redirect()->route('comics.show', $comic->id);
     }
@@ -81,8 +75,10 @@ class ComicController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Comic $comic)
     {
-        //
+        $comic->delete();
+
+        return redirect()->route('comics.index');
     }
 }
