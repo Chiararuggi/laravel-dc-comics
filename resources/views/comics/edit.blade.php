@@ -30,6 +30,7 @@
                 <input type="text" class="form-control" id="image" name="image" value="{{$comic->image}}">
             </div>
             <button type="submit" class="btn btn-primary">Edit</button>
+            <a href="{{ route('comics.index') }}" class="btn btn-primary">Go back</a>
         </form>
     </div>
 </div>
