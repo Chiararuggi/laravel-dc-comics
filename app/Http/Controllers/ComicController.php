@@ -32,23 +32,22 @@ class ComicController extends Controller
     {
         $data = $request->all();
 
-        $newComic = new Comic();
-        $newComic->title = $data["title"];
-        $newComic->description = $data["description"];
-        $newComic->image = $data["image"];
-        $newComic->price = $data["price"];
-        $newComic->type = $data["type"];
-        $newComic->save();
+        $comic = new Comic();
+        $comic->title = $data["title"];
+        $comic->description = $data["description"];
+        $comic->image = $data["image"];
+        $comic->price = $data["price"];
+        $comic->type = $data["type"];
+        $comic->save();
 
-        return redirect()->route('comics.show', $newComic->id);
+        return redirect()->route('comics.show', $comic->id);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Comic $comic)
     {
-        $comic = Comic::find($id); 
 
         return view("comics.show", compact("comic"));
 
@@ -57,17 +56,26 @@ class ComicController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Comic $comic)
     {
-        //
+        return view("comics.edit", compact("comic"));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Comic $comic)
     {
-        //
+        $data = $request->all();
+
+        $comic->title = $data["title"];
+        $comic->description = $data["description"];
+        $comic->image = $data["image"];
+        $comic->price = $data["price"];
+        $comic->type = $data["type"];
+        $comic->save();
+
+        return redirect()->route('comics.show', $comic->id);
     }
 
     /**
